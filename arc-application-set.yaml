@@ -29,7 +29,7 @@ spec:
             - name: targetRevision
               value: 0.23.3
       destination:
-        server: '{{server}}' # (4)
+        server: 'in-cluster' # (4)
         namespace: actions-runner-system # (5)
       syncPolicy: # (6)
         automated:
