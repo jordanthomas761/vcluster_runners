@@ -18,7 +18,7 @@ spec:
     repoURL: https://charts.jetstack.io
     targetRevision: v1.10.0
   destination:
-      name: {{ .Values.cluster.server }}
+      server: {{ .Values.cluster.server }}
       namespace: cert-manager
   syncPolicy:
     automated:
