@@ -1,24 +1,33 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: "{{ .Values.cluster_name }}-actions-runner-controller"
+  name: {{ .Values.name }}
   namespace: argocd
 spec:
-  project: default
-  source:
-    repoURL: https://actions-runner-controller.github.io/actions-runner-controller
-    chart: actions-runner-controller
-    targetRevision: {{ .Values.targetRevision }}
-    helm:
-      parameters:
-        - name: syncPeriod
-          value: 1m
-  destination:
-      name: {{ .Values.cluster_server }}
-      namespace: actions-runner-system
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-    - Replace=true
+  generators:
+  - clusters: 
+      selector:
+        matchLabels:
+          vcluster: true
+  template:
+    metadata:
+      name: "{{ generators.clusters.values.name }}-actions-runner-controller"
+    spec:
+      project: default
+      source:
+        repoURL: https://actions-runner-controller.github.io/actions-runner-controller
+        chart: actions-runner-controller
+        targetRevision: {{ .Values.targetRevision }}
+        helm:
+          parameters:
+            - name: syncPeriod
+              value: 1m
+      destination:
+          name: {{ generators.clusters.values.cluster_server }}
+          namespace: actions-runner-system
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - Replace=true
