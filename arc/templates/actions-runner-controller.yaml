@@ -5,10 +5,7 @@ metadata:
   namespace: argocd
 spec:
   generators:
-  - clusters: 
-      selector:
-        matchLabels:
-          vcluster: true
+  - clusters: {}
   template:
     metadata:
       name: '{{name}}-actions-runner-controller'
