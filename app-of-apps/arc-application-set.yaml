@@ -11,24 +11,24 @@ spec:
           vcluster: "true"
   template:
     metadata:
-      name: '{{name}}-arc-app-of-apps' # (2)
+      name: "{{name}}-actions-runner-controller"
     spec:
       project: default
-      source: # (3)
-        repoURL: https://github.com/jordanthomas761/vcluster_runners.git
-        targetRevision: HEAD
-        path: arc
+      source:
+        repoURL: https://github.com/jordanthomas761/vcluster_runners
+        chart: arc
+        targetRevision: 0.23.3
         helm:
           parameters:
-            - name: cluster_name
-              value: '{{name}}'
-            - name: cluster_server
-              value: '{{server}}'
             - name: targetRevision
               value: 0.23.3
+            - name: cluster.name
+              value: "{{name}}"
+            - name: cluster.server
+              value: "{{server}}"
       destination:
-        server: 'in-cluster' # (4)
-        namespace: actions-runner-system # (5)
+        name: in-cluster
+        namespace: actions-runner-system
       syncPolicy: # (6)
         automated:
           selfHeal: true

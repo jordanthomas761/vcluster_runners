@@ -11,7 +11,7 @@ spec:
           vcluster: true
   template:
     metadata:
-      name: "{{ generators.clusters.values.name }}-actions-runner-controller"
+      name: "{{ .Values.cluster.name }}-actions-runner-controller"
     spec:
       project: default
       source:
@@ -23,7 +23,7 @@ spec:
             - name: syncPeriod
               value: 1m
       destination:
-          name: {{ generators.clusters.values.cluster_server }}
+          name: {{ .Values.cluster.server }}
           namespace: actions-runner-system
       syncPolicy:
         automated:
