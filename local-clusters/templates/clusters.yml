@@ -11,7 +11,7 @@ spec:
     targetRevision: {{ .Values.targetRevision }}
     helm:
       parameters:
-      - name: syncer.extraArgs
+      - name: syncer.extraArgs[0]
         value: "--tls-san=vc5.vc5-vcluster"
   destination:
       name: in-cluster
