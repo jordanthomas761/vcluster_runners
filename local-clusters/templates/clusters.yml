@@ -16,6 +16,10 @@ spec:
       parameters:
       - name: syncer.extraArgs[0]
         value: "--tls-san={{ .name }}.{{ .name }}-vcluster"
+      - name: distro
+        value: "k8s"
+      - name: connect
+        value: "false"
   destination:
       name: in-cluster
       namespace: vcluster-{{ .name }}
