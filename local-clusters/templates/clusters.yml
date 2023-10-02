@@ -14,7 +14,7 @@ spec:
       - name: syncer.extraArgs
         value: "--tls-san=vc5.vc5-vcluster"
   destination:
-      server: in-cluster
+      name: in-cluster
       namespace: vcluster-vc5
   syncPolicy:
     automated:
