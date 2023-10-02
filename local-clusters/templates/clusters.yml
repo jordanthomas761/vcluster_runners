@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vc5-cluster
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://charts.loft.sh
+    chart: vcluster/vcluster
+    targetRevision: {{ .Values.targetRevision }}
+    helm:
+      parameters:
+        - name: syncer.extraArgs
+          value: ["--tls-san=vc5.vc5-vcluster"]
+  destination:
+      server: in-cluster
+      namespace: vcluster-vc5
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
