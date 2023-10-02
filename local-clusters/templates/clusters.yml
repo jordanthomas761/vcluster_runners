@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://charts.loft.sh
-    chart: vcluster/vcluster
+    chart: vcluster
     targetRevision: {{ .Values.targetRevision }}
     helm:
       parameters:
