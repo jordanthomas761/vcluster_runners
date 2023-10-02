@@ -4,31 +4,22 @@ metadata:
   name: {{ .Values.cluster.name }}-arc
   namespace: argocd
 spec:
-  generators:
-  - clusters: 
-      selector:
-        matchLabels:
-          vcluster: true
-  template:
-    metadata:
-      name: "{{ .Values.cluster.name }}-actions-runner-controller"
-    spec:
-      project: default
-      source:
-        repoURL: https://actions-runner-controller.github.io/actions-runner-controller
-        chart: actions-runner-controller
-        targetRevision: {{ .Values.targetRevision }}
-        helm:
-          parameters:
-            - name: syncPeriod
-              value: 1m
-      destination:
-          server: {{ .Values.cluster.server }}
-          namespace: actions-runner-system
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
-        syncOptions:
-          - CreateNamespace=true
-          - Replace=true
+  project: default
+  source:
+    repoURL: https://actions-runner-controller.github.io/actions-runner-controller
+    chart: actions-runner-controller
+    targetRevision: {{ .Values.targetRevision }}
+    helm:
+      parameters:
+        - name: syncPeriod
+          value: 1m
+  destination:
+      server: {{ .Values.cluster.server }}
+      namespace: actions-runner-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
