@@ -1,3 +1,4 @@
+{{ $targetRevision := .Values.targetRevision  }}
 {{- range .Values.clusters }}
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -10,7 +11,7 @@ spec:
   source:
     repoURL: https://charts.loft.sh
     chart: vcluster
-    targetRevision: {{ .Values.targetRevision }}
+    targetRevision: {{ $targetRevision }}
     helm:
       parameters:
       - name: syncer.extraArgs[0]
