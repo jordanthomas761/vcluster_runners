@@ -8,7 +8,7 @@ spec:
   - clusters: 
       selector:
         matchLabels:
-          vcluster: true
+          vcluster: "true"
   template:
     metadata:
       name: '{{name}}-arc-app-of-apps' # (2)
