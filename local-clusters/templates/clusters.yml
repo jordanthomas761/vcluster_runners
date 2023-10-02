@@ -4,7 +4,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ name }}-cluster
+  name: {{ .name }}-cluster
   namespace: argocd
 spec:
   project: default
@@ -15,10 +15,10 @@ spec:
     helm:
       parameters:
       - name: syncer.extraArgs[0]
-        value: "--tls-san={{ name }}.{{ name }}-vcluster"
+        value: "--tls-san={{ .name }}.{{ .name }}-vcluster"
   destination:
       name: in-cluster
-      namespace: vcluster-{{ name }}
+      namespace: vcluster-{{ .name }}
   syncPolicy:
     automated:
       prune: true
