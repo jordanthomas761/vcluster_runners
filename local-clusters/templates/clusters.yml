@@ -1,7 +1,10 @@
+{{ $workerNamespace := .Values.cluster.workerNamespace }}
+{{- range .Values.clusters }}
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: vc5-cluster
+  name: {{ name }}-cluster
   namespace: argocd
 spec:
   project: default
@@ -12,10 +15,10 @@ spec:
     helm:
       parameters:
       - name: syncer.extraArgs[0]
-        value: "--tls-san=vc5.vc5-vcluster"
+        value: "--tls-san={{ name }}.{{ name }}-vcluster"
   destination:
       name: in-cluster
-      namespace: vcluster-vc5
+      namespace: vcluster-{{ name }}
   syncPolicy:
     automated:
       prune: true
@@ -23,3 +26,4 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - Replace=true
+{{- end -}}

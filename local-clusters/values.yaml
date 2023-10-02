@@ -1,1 +1,7 @@
 targetRevision: 0.15.7
+
+clusters:
+  vc4:
+    name: vc4
+  vc5:
+    name: vc5
