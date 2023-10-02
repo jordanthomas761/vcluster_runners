@@ -12,7 +12,7 @@ spec:
     helm:
       parameters:
       - name: syncer.extraArgs
-        value: ["--tls-san=vc5.vc5-vcluster"]
+        value: "--tls-san=vc5.vc5-vcluster"
   destination:
       server: in-cluster
       namespace: vcluster-vc5
