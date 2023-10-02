@@ -1,4 +1,3 @@
-{{ $workerNamespace := .Values.cluster.workerNamespace }}
 {{- range .Values.clusters }}
 ---
 apiVersion: argoproj.io/v1alpha1
