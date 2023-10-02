@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: arc-app-of-apps
+  namespace: argocd
+spec:
+  generators:
+  - clusters: 
+      selector:
+        matchLabels:
+          vcluster: true
+  template:
+    metadata:
+      name: '{{name}}-arc-app-of-apps' # (2)
+    spec:
+      project: default
+      source: # (3)
+        repoURL: https://github.com/jordanthomas761/vcluster_runners.git
+        targetRevision: HEAD
+        path: arc
+        helm:
+          parameters:
+            - name: name
+              value: '{{name}}'
+            - name: cluster_name
+              value: '{{name}}'
+            - name: cluster_server
+              value: '{{server}}'
+            - name: targetRevision
+              value: 0.23.3
+      destination:
+        server: '{{server}}' # (4)
+        namespace: actions-runner-system # (5)
+      syncPolicy: # (6)
+        automated:
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
