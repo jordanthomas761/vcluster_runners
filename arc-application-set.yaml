@@ -20,8 +20,6 @@ spec:
         path: arc
         helm:
           parameters:
-            - name: name
-              value: '{{name}}'
             - name: cluster_name
               value: '{{name}}'
             - name: cluster_server
