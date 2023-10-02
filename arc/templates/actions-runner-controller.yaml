@@ -23,7 +23,7 @@ spec:
             - name: syncPeriod
               value: 1m
       destination:
-          name: {{ .Values.cluster.server }}
+          server: {{ .Values.cluster.server }}
           namespace: actions-runner-system
       syncPolicy:
         automated:
