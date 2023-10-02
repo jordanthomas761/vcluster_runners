@@ -16,8 +16,8 @@ spec:
       project: default
       source:
         repoURL: https://github.com/jordanthomas761/vcluster_runners
-        chart: arc
-        targetRevision: 0.23.3
+        path: arc
+        targetRevision: HEAD
         helm:
           parameters:
             - name: targetRevision
@@ -28,7 +28,7 @@ spec:
               value: "{{server}}"
       destination:
         name: in-cluster
-        namespace: actions-runner-system
+        namespace: argocd
       syncPolicy: # (6)
         automated:
           selfHeal: true
