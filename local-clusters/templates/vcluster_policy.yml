@@ -24,22 +24,22 @@ spec:
     context: # (3)
     - name: namespace
       variable:
-        value: "=(request.object.metadata.namespace):"
+        value: "=(request.object.metadata.namespace)"
     - name: name
       variable:
-        value: "=(request.object.metadata.name):"
+        value: "=(request.object.metadata.name)"
     - name: ca # (4)
       variable: 
-        value: "=(request.object.data.\"certificate-authority\"):"
+        value: "=(request.object.data.\"certificate-authority\")"
     - name: cert # (5)
       variable: 
-        value: "=(request.object.data.\"client-certificate\"):"
+        value: "=(request.object.data.\"client-certificate\")"
     - name: key # (6)
       variable: 
-        value: "=(request.object.data.\"client-key\"):"
+        value: "=(request.object.data.\"client-key\")"
     - name: vclusterName # (7)
       variable:
-        value: "=(replace_all(namespace, 'vcluster-', '')):"
+        value: "=(replace_all(namespace, 'vcluster-', ''))"
         jmesPath: 'to_string(@)'
     generate:
       kind: Secret
@@ -55,13 +55,13 @@ spec:
             vcluster: "true"
         stringData: # (11)
           name: "=(vclusterName):"
-          server: "https://=( vclusterName ):.=( namespace )::443" # (12)
+          server: "https://=( vclusterName ).=( namespace ):443" # (12)
           config: |
             {
               "tlsClientConfig": {
                 "insecure": false,
-                "caData": "=(ca):",
-                "certData": "=(cert):",
-                "keyData": "=(key):"
+                "caData": "=(ca)",
+                "certData": "=(cert)",
+                "keyData": "=(key)"
               }
             }
