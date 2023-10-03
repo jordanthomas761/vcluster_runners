@@ -1,6 +1,11 @@
 {{ $targetRevision := .Values.targetRevision  }}
 {{- range .Values.clusters }}
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vcluster-{{ .name }}
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -30,6 +35,5 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - CreateNamespace=true
       - Replace=true
 {{- end -}}
