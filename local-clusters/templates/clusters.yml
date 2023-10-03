@@ -4,7 +4,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .name }}-cluster
+  name: {{ .name }}
   namespace: argocd
 spec:
   project: default
@@ -20,6 +20,8 @@ spec:
         value: "k8s"
       - name: connect
         value: "false"
+      - name: repository-config
+        value: ''
   destination:
       name: in-cluster
       namespace: vcluster-{{ .name }}
