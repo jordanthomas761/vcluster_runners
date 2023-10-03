@@ -3,5 +3,3 @@ targetRevision: 0.15.7
 clusters:
   vc1:
     name: vc1
-  vc2:
-    name: vc2
