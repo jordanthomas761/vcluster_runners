@@ -17,7 +17,7 @@ spec:
         - name: set[1]
           value: "api.adminAccount.tokenSigningKey=iwishtowashmyirishwristwatch"
     repoURL: oci://ghcr.io/akuity/kargo-charts
-    targetRevision: latest
+    targetRevision: 0.1.0
   destination:
       name: in-cluster
       namespace: kargo
