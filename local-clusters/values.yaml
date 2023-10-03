@@ -3,11 +3,3 @@ targetRevision: 0.15.7
 clusters:
   vc1:
     name: vc1
-  vc2:
-    name: vc2
-  vc3:
-    name: vc3
-  vc4:
-    name: vc4
-  vc5:
-    name: vc5
