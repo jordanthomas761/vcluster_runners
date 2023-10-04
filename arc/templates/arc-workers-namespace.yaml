@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://actions-runner-controller.github.io/actions-runner-controller
+    repoURL: https://github.com/jordanthomas761/vcluster_runners
     path: arc-workers-namespace
     targetRevision: HEAD
   destination:
