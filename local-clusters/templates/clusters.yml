@@ -4,12 +4,12 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: vcluster-{{ .name }}
+  name: vcluster-{{ . }}
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .name }}
+  name: {{ . }}
   namespace: argocd
 spec:
   project: default
@@ -20,7 +20,7 @@ spec:
     helm:
       parameters:
       - name: syncer.extraArgs[0]
-        value: "--tls-san={{ .name }}.{{ .name }}-vcluster"
+        value: "--tls-san={{ . }}.{{ . }}-vcluster"
       - name: distro
         value: "k8s"
       - name: connect
@@ -29,7 +29,7 @@ spec:
         value: ''
   destination:
       name: in-cluster
-      namespace: vcluster-{{ .name }}
+      namespace: vcluster-{{ . }}
   syncPolicy:
     automated:
       prune: true
