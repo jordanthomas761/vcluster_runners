@@ -1,0 +1,22 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Stage
+metadata:
+  name: test
+  namespace: 
+spec:
+  subscriptions:
+    repos:
+      images:
+      - repoURL: nginx
+        semverConstraint: ^1.24.0
+  promotionMechanisms:
+    gitRepoUpdates:
+    - repoURL: ${GITOPS_REPO_URL}
+      writeBranch: stage/{{` {{name}} `}}
+      kustomize:
+        images:
+        - image: nginx
+          path: stages/test
+    argoCDAppUpdates:
+    - appName: kargo-demo-test
+      appNamespace: argocd
