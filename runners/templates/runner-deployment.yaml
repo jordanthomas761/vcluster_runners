@@ -1,3 +1,5 @@
+{{$image := .Values.image}}
+{{$tag := .Values.tag}}
 {{- range .Values.repos }}
 {{- $repo:= split "/" . }}
 apiVersion: actions.summerwind.dev/v1alpha1
@@ -9,7 +11,7 @@ metadata:
 spec:
   template:
     spec:
-      image: {{.Values.image}}:{{.Values.tag}}
+      image: {{$image}}:{{$tag}}
       labels: 
         - macbook
       repository: {{ . }}     
