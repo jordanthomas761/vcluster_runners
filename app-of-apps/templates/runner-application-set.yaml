@@ -13,7 +13,7 @@ spec:
     metadata:
       name: {{`"{{name}}-runners"`}}
       annotations:
-        kargo.akuity.io/authorized-stage: kargo-demo:{{`{{ regexFind "(west|east)"  {{ name }} }}`}}
+        kargo.akuity.io/authorized-stage: kargo-demo:{{`{{ name }}`}}
     spec:
       project: default
       source:
