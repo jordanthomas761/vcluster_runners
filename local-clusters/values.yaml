@@ -2,4 +2,5 @@ targetRevision: 0.15.7
 
 clusters:
   - vc1
-  - vc2
+  - local-runners-non-prod
+  - local-runners-prod
