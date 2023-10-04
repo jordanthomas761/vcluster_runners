@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+spec:
+
+  ignoreDifferences:
+  - group: "policies"
+    kind: "ClusterPolicy"
+    jsonPointers:
+    - /metadata/argocd.argoproj.io/sync-options
+
+  syncPolicy:
+    syncOptions:
+    - RespectIgnoreDifferences=true
