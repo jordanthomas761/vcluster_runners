@@ -1,12 +1,12 @@
 apiVersion: kargo.akuity.io/v1alpha1
 kind: Stage
 metadata:
-  name: prod-east
+  name: local-runners-east-prod
   namespace: kargo-demo
 spec:
   subscriptions:
     upstreamStages:
-    - name: test
+    - name: local-runners-east-non-prod
   promotionMechanisms:
     gitRepoUpdates:
     - repoURL: https://github.com/jordanthomas761/vcluster_runners

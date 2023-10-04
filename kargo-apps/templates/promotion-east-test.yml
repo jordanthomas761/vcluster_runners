@@ -1,7 +1,7 @@
 apiVersion: kargo.akuity.io/v1alpha1
 kind: PromotionPolicy
 metadata:
-  name: test-east
+  name: local-runners-east-non-prod
   namespace: kargo-demo
-stage: test-east
+stage: local-runners-east-non-prod
 enableAutoPromotion: true
