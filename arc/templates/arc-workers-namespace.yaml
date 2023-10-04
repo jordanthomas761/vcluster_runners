@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://actions-runner-controller.github.io/actions-runner-controller
-    chart: arc-workers-namespace
+    path: arc-workers-namespace
     targetRevision: HEAD
   destination:
       server: {{ .Values.cluster.server }}
