@@ -3,8 +3,6 @@ kind: ApplicationSet
 metadata:
   name: runners-app-of-apps
   namespace: argocd
-  annotations:
-    kargo.akuity.io/authorized-stage: kargo-demo:test
 spec:
   generators:
   - clusters: 
@@ -14,6 +12,8 @@ spec:
   template:
     metadata:
       name: {{`"{{name}}-runners"`}}
+      annotations:
+        kargo.akuity.io/authorized-stage: kargo-demo:test
     spec:
       project: default
       source:
