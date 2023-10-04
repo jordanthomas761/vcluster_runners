@@ -1,6 +1,6 @@
 {{- range .Values.repos }}
 {{- $repo:= split "/" . }}
-apiVersion: actions.summerwind.dev/
+apiVersion: actions.summerwind.dev/v1alpha1
 kind: RunnerDeployment
 metadata:
   name: {{ $repo._1 }}-deployment
