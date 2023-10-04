@@ -1,6 +1,18 @@
 targetRevision: 0.15.7
 
 clusters:
-  - vc1
-  - local-runners-non-prod
-  - local-runners-prod
+  # - vc1
+  #non-prod
+  - account: local
+    region: east
+    environment: non-prod
+  - account: local
+    region: west
+    environment: non-prod
+  #prod
+  - account: local
+    region: east
+    environment: prod
+  - account: local
+    region: west
+    environment: prod

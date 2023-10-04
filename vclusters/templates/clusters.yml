@@ -1,15 +1,16 @@
 {{ $targetRevision := .Values.targetRevision  }}
 {{- range .Values.clusters }}
+{{- $clusterName := (printf "%s-runners-%s-%s" .account .region .environment) -}}
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: vcluster-{{ . }}
+  name: vcluster-{{ $clusterName }}
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ . }}
+  name: {{ $clusterName }}
   namespace: argocd
 spec:
   project: default
@@ -20,7 +21,7 @@ spec:
     helm:
       parameters:
       - name: syncer.extraArgs[0]
-        value: "--tls-san={{ . }}.{{ . }}-vcluster"
+        value: "--tls-san={{ $clusterName }}.{{ $clusterName }}-vcluster"
       - name: distro
         value: "k8s"
       - name: connect
@@ -29,7 +30,7 @@ spec:
         value: ''
   destination:
       name: in-cluster
-      namespace: vcluster-{{ . }}
+      namespace: vcluster-{{ $clusterName }}
   syncPolicy:
     automated:
       prune: true
