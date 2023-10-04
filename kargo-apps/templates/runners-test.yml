@@ -15,7 +15,8 @@ spec:
       writeBranch: stage/local-runners-east-non-prod-runners
       helm:
         images:
-          - value: Image
+          - value: Tag
+            key: tag
             image: ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner
             valuesFilePath: runners
     argoCDAppUpdates:
