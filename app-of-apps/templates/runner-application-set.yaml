@@ -19,9 +19,11 @@ spec:
         path: runners
         targetRevision: HEAD
       destination:
-        name: in-cluster
-        namespace: argocd
+        server: {{`{{server}}`}}
+        namespace: actions-runner-workers
       syncPolicy: 
         automated:
           selfHeal: true
           prune: true
+        syncOptions:
+          - CreateNamespace=true
