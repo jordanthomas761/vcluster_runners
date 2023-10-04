@@ -14,7 +14,8 @@ spec:
     - repoURL: https://github.com/jordanthomas761/vcluster_runners
       writeBranch: stage/local-runners-east-non-prod-runners
       helm:
-        image: ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner
+        images:
+          - image: ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner
     argoCDAppUpdates:
     - appName: local-runners-east-non-prod-runners
       appNamespace: argocd
