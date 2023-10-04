@@ -6,7 +6,7 @@ metadata:
 spec:
   subscriptions:
     upstreamStages:
-    - name: test-east
+    - name: non-prod-east
   promotionMechanisms:
     gitRepoUpdates:
     - repoURL: https://github.com/jordanthomas761/vcluster_runners
