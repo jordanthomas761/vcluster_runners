@@ -7,16 +7,16 @@ spec:
   subscriptions:
     repos:
       images:
-      - repoURL: nginx
-        semverConstraint: ^1.24.0
+      - repoURL: ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner
+        semverConstraint: ^v2.307.1-ubuntu-20.04-dcb64f0
   promotionMechanisms:
     gitRepoUpdates:
-    - repoURL: ${GITOPS_REPO_URL}
-      writeBranch: stage/{{` {{name}} `}}
-      kustomize:
+    - repoURL: https://github.com/jordanthomas761/vcluster_runners
+      writeBranch: stage/local-runners-east-non-prod-runners
+      helm:
         images:
-        - image: nginx
+        - image: summerwind/actions-runner
           path: stages/test
     argoCDAppUpdates:
-    - appName: kargo-demo-test
+    - appName: local-runners-east-non-prod-runners
       appNamespace: argocd
