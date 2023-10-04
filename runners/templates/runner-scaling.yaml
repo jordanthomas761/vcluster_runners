@@ -1,6 +1,6 @@
 {{- range .Values.repos }}
 {{- $repo:= split "/" . }}
-apiVersion: actions.summerwind.dev/v1alpha1
+apiVersion: actions.summerwind.dev/
 kind: HorizontalRunnerAutoscaler
 metadata:
   name: {{ $repo._1 }}-autoscaler
