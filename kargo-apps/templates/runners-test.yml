@@ -16,6 +16,7 @@ spec:
       helm:
         images:
           - image: ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner
+            valuesFilePath: runners
     argoCDAppUpdates:
     - appName: local-runners-east-non-prod-runners
       appNamespace: argocd
