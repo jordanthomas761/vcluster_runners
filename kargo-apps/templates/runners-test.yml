@@ -18,7 +18,7 @@ spec:
           - value: Tag
             key: tag
             image: ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner
-            valuesFilePath: runners
+            valuesFilePath: runners/values.yaml
     argoCDAppUpdates:
     - appName: local-runners-east-non-prod-runners
       appNamespace: argocd
