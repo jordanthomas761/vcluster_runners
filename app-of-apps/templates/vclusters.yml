@@ -9,9 +9,6 @@ spec:
     repoURL: https://github.com/jordanthomas761/vcluster_runners
     path: vclusters
     targetRevision: HEAD
-    helm:
-      valueFiles:
-        - clusters.yaml
   destination:
       name: in-cluster
       namespace: argocd

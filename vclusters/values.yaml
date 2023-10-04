@@ -1,7 +1,18 @@
 targetRevision: 0.15.7
 
 clusters:
+  # - vc1
   #non-prod
-  - account: ""
-    region: ""
-    environment: ""
+  - account: local
+    region: east
+    stage: non-prod
+  - account: local
+    region: west
+    stage: non-prod
+  #prod
+  - account: local
+    region: east
+    stage: prod
+  - account: local
+    region: west
+    stage: prod
