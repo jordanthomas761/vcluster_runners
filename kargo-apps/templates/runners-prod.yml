@@ -5,9 +5,8 @@ metadata:
   namespace: kargo-demo
 spec:
   subscriptions:
-    repos:
-      upstreamStages:
-      - name: test
+    upstreamStages:
+    - name: test
   promotionMechanisms:
     gitRepoUpdates:
     - repoURL: https://github.com/jordanthomas761/vcluster_runners
