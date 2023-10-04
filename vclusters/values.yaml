@@ -5,14 +5,14 @@ clusters:
   #non-prod
   - account: local
     region: east
-    environment: non-prod
+    stage: non-prod
   - account: local
     region: west
-    environment: non-prod
+    stage: non-prod
   #prod
   - account: local
     region: east
-    environment: prod
+    stage: prod
   - account: local
     region: west
-    environment: prod
+    stage: prod

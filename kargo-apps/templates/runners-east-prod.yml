@@ -1,18 +1,16 @@
 apiVersion: kargo.akuity.io/v1alpha1
 kind: Stage
 metadata:
-  name: test
+  name: prod-east
   namespace: kargo-demo
 spec:
   subscriptions:
-    repos:
-      images:
-      - repoURL: ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner
-        semverConstraint: ^v2.307.1-ubuntu-20.04-dcb64f0
+    upstreamStages:
+    - name: test
   promotionMechanisms:
     gitRepoUpdates:
     - repoURL: https://github.com/jordanthomas761/vcluster_runners
-      writeBranch: stage/local-runners-east-non-prod
+      writeBranch: stage/local-runners-east-prod
       helm:
         images:
           - value: Image
@@ -20,5 +18,5 @@ spec:
             image: ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner
             valuesFilePath: runners/values.yaml
     argoCDAppUpdates:
-    - appName: local-runners-east-non-prod-runners
+    - appName: local-runners-east-prod-runners
       appNamespace: argocd
