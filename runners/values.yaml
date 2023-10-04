@@ -1,0 +1,7 @@
+targetRevision: 0.23.3
+
+repos:
+- jordanthomas761/hello-world-javascript-action
+- jordanthomas761/python-test-app
+
+image: ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner:v2.309.0-ubuntu-22.04-ead26ab
