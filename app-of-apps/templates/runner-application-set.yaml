@@ -19,7 +19,7 @@ spec:
         path: runners
         targetRevision: HEAD
       destination:
-        server: {{`{{server}}`}}
+        server: {{`"{{server}}"`}}
         namespace: actions-runner-workers
       syncPolicy: 
         automated:
