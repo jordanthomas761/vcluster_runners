@@ -1,7 +1,7 @@
 apiVersion: kargo.akuity.io/v1alpha1
 kind: Stage
 metadata:
-  name: test-east
+  name: non-prod-east
   namespace: kargo-demo
 spec:
   subscriptions:
