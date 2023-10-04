@@ -1,6 +1,6 @@
 {{ $targetRevision := .Values.targetRevision  }}
 {{- range .Values.clusters }}
-{{- $clusterName := (printf "%s-runners-%s-%s" .account .region .environment) -}}
+{{- $clusterName := (printf "%s-runners-%s-%s" .account .region .environment) }}
 ---
 apiVersion: v1
 kind: Namespace
