@@ -25,7 +25,7 @@ spec:
             - name: cluster.name
               value: {{`"{{name}}"`}}
             - name: cluster.server
-              value: {`"{{server}}"`}}
+              value: {{`"{{server}}"`}}
       destination:
         name: in-cluster
         namespace: argocd
