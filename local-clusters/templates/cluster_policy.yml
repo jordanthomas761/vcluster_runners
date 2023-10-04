@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .Values.cluster.name }}-arc
+  name: k8s-system-sync
   namespace: argocd
 spec:
   project: default
@@ -22,7 +22,7 @@ spec:
         kind: "ClusterPolicy"
         jsonPointers:
         - /metadata/argocd.argoproj.io/sync-options
-        
+
   syncPolicy:
     automated:
       prune: true
