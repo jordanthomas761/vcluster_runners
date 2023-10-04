@@ -15,10 +15,6 @@ spec:
       writeBranch: stage/local-runners-east-non-prod
       helm:
         images:
-          - value: Tag
-            key: tag
-            image: ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner
-            valuesFilePath: runners/values.yaml
           - value: Image
             key: image
             image: ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner
