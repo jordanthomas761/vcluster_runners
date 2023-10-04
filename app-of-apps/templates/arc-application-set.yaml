@@ -11,7 +11,7 @@ spec:
           vcluster: "true"
   template:
     metadata:
-      name: "{{name}}-app-of-apps"
+      name: {{`"{{name}}-app-of-apps"`}}
     spec:
       project: default
       source:
