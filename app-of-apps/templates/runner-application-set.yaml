@@ -13,7 +13,7 @@ spec:
     metadata:
       name: {{`"{{name}}-runners"`}}
       annotations:
-        kargo.akuity.io/authorized-stage: kargo-demo:{{`{{if contains name "non" | default non-prod prod}}`}}test{{- else -}}prod{{- end }}-east
+        kargo.akuity.io/authorized-stage: kargo-demo:{{`{{if contains name "non" | default test prod}}`}}-east
     spec:
       project: default
       source:
