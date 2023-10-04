@@ -1,0 +1,7 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: PromotionPolicy
+metadata:
+  name: local-runners-west-prod
+  namespace: kargo-demo
+stage: local-runners-west-prod
+enableAutoPromotion: true

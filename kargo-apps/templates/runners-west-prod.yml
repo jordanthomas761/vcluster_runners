@@ -1,0 +1,22 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Stage
+metadata:
+  name: local-runners-west-prod
+  namespace: kargo-demo
+spec:
+  subscriptions:
+    upstreamStages:
+    - name: local-runners-west-non-prod
+  promotionMechanisms:
+    gitRepoUpdates:
+    - repoURL: https://github.com/jordanthomas761/vcluster_runners
+      writeBranch: stage/local-runners-west-prod
+      helm:
+        images:
+          - value: Image
+            key: image
+            image: ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner
+            valuesFilePath: runners/values.yaml
+    argoCDAppUpdates:
+    - appName: local-runners-west-prod-runners
+      appNamespace: argocd
