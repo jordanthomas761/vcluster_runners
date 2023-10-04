@@ -6,8 +6,6 @@ metadata:
   name: {{ $repo._1 }}-deployment
   namespace: actions-runner-workers
   annotations:
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   template:
     spec:
