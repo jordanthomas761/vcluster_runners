@@ -1,0 +1,26 @@
+{{- range .Values.repos }}
+{{- $repo:= split "/" . }}
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: {{ $repo._1 }}-deployment
+  namespace: actions-runner-workers
+  annotations:
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  template:
+    spec:
+      labels: 
+        - macbook
+      repository: {{ . }}     
+      dockerdWithinRunnerContainer: false
+      ephemeral: true
+      dockerdContainerResources:
+        limits:
+          cpu: "2"
+          memory: "2Gi"
+        requests:
+          cpu: "250m"
+          memory: "256Mi"
+{{- end -}}
