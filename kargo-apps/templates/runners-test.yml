@@ -15,7 +15,7 @@ spec:
       writeBranch: stage/local-runners-east-non-prod-runners
       helm:
         images:
-          - image: ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner
+          - image: ghcr.io/actions-runner-controller/actions-runner-controller/actions-runner:v2.307.1-ubuntu-20.04-dcb64f0
             valuesFilePath: runners
     argoCDAppUpdates:
     - appName: local-runners-east-non-prod-runners
