@@ -19,7 +19,7 @@ spec:
       source:
         repoURL: https://github.com/jordanthomas761/vcluster_runners
         path: runners
-        targetRevision: stage/{{`"{{name}}"`}}
+        targetRevision: stage/{{`{{name}}`}}
       destination:
         server: {{`"{{server}}"`}}
         namespace: actions-runner-workers
