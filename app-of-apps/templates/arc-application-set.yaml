@@ -3,8 +3,6 @@ kind: ApplicationSet
 metadata:
   name: arc-app-of-apps
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
 spec:
   generators:
   - clusters: 
@@ -25,9 +23,9 @@ spec:
             - name: targetRevision
               value: 0.23.3
             - name: cluster.name
-              value: "{{name}}"
+              value: {{`"{{name}}"`}}
             - name: cluster.server
-              value: "{{server}}"
+              value: {`"{{server}}"`}}
       destination:
         name: in-cluster
         namespace: argocd
