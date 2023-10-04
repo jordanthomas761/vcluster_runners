@@ -14,9 +14,7 @@ spec:
     - repoURL: https://github.com/jordanthomas761/vcluster_runners
       writeBranch: stage/local-runners-east-non-prod-runners
       helm:
-        images:
-        - image: summerwind/actions-runner
-          path: stages/test
+        imageTag: v2.307.1-ubuntu-20.04-dcb64f0
     argoCDAppUpdates:
     - appName: local-runners-east-non-prod-runners
       appNamespace: argocd
