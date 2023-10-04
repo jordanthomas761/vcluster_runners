@@ -12,7 +12,7 @@ spec:
   promotionMechanisms:
     gitRepoUpdates:
     - repoURL: https://github.com/jordanthomas761/vcluster_runners
-      writeBranch: stage/local-runners-east-non-prod-runners
+      writeBranch: stage/local-runners-east-non-prod
       helm:
         images:
           - value: Tag
