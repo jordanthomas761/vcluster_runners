@@ -10,7 +10,7 @@ spec:
     path: vclusters
     targetRevision: HEAD
     helm:
-      values-files:
+      valueFiles:
         - clusters.yaml
   destination:
       name: in-cluster
